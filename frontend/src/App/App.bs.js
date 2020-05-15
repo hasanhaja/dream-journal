@@ -3,7 +3,9 @@
 var Css = require("bs-css-emotion/src/Css.js");
 var Curry = require("bs-platform/lib/js/curry.js");
 var React = require("react");
+var Css_Core = require("bs-css/src/Css_Core.js");
 var Entry$ReasonReactExamples = require("./Entry.bs.js");
+var Settings$ReasonReactExamples = require("./Settings.bs.js");
 
 var content = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lectus arcu bibendum at varius vel pharetra vel turpis nunc. Pretium nibh ipsum consequat nisl vel. Eget nulla facilisi etiam dignissim diam quis enim. Viverra ipsum nunc aliquet bibendum enim. Semper quis lectus nulla at volutpat diam ut venenatis tellus. Mi quis hendrerit dolor magna. Nascetur ridiculus mus mauris vitae ultricies leo. Non arcu risus quis varius quam quisque id. Tincidunt id aliquet risus feugiat in ante metus. Vulputate eu scelerisque felis imperdiet proin fermentum leo. Turpis massa sed elementum tempus egestas sed sed. Eget nulla facilisi etiam dignissim diam quis enim lobortis scelerisque. Eu volutpat odio facilisis mauris sit amet massa. Egestas tellus rutrum tellus pellentesque eu. Id interdum velit laoreet id donec ultrices. Elementum nisi quis eleifend quam adipiscing.";
 
@@ -35,7 +37,10 @@ var actionButton = Curry._1(Css.style, /* :: */[
             Css.bottom(Css.px(20)),
             /* :: */[
               Css.position(Css.fixed),
-              /* [] */0
+              /* :: */[
+                Css.boxShadow(Css_Core.Shadow.box(undefined, Css.px(8), Css.px(16), undefined, undefined, Css.rgba(0, 0, 0, 0.2))),
+                /* [] */0
+              ]
             ]
           ]
         ]
@@ -54,17 +59,14 @@ function App(Props) {
                       href: "#"
                     }, "Dream Journal"), React.createElement("ul", {
                       className: "nav nav-pills"
-                    }, React.createElement("li", undefined, React.createElement("a", {
-                              className: "nav-link",
-                              href: "#settings"
-                            }, "Settings")))), React.createElement("div", undefined, React.createElement(Entry$ReasonReactExamples.make, {
+                    }, React.createElement("li", undefined, React.createElement(Settings$ReasonReactExamples.make, { })))), React.createElement("div", undefined, React.createElement(Entry$ReasonReactExamples.make, {
                       data: first
                     }), React.createElement(Entry$ReasonReactExamples.make, {
                       data: second
                     }), React.createElement(Entry$ReasonReactExamples.make, {
                       data: third
                     })), React.createElement("button", {
-                  className: actionButton + " btn btn-primary btn-lg h1"
+                  className: actionButton + " btn btn-primary btn-lg"
                 }, "New"));
 }
 

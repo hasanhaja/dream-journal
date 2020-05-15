@@ -10,7 +10,7 @@ The project currently uses Bootstrap for styling, but I plan on swapping that ou
 
 ## Plan
 
-- [ ] Design base ui
+- [x] Design base ui
 - [ ] Design create new entry button
 - [ ] Render new entry component
 - [ ] Replace styling with `tailwindcss`

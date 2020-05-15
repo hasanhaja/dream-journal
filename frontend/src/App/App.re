@@ -16,6 +16,7 @@ module Styles = {
       right(px(20)),
       bottom(px(20)),
       position(fixed),
+      boxShadow(Shadow.box(~y=px(8), ~blur=px(16), rgba(0, 0, 0, 0.2))),
     ]);
 };
 
@@ -27,20 +28,14 @@ let make = () => {
   <div>
     <nav className="navbar navbar-light bg-light">
       <a className="navbar-brand" href="#"> "Dream Journal"->React.string </a>
-      <ul className="nav nav-pills">
-        <li>
-          <a className="nav-link" href="#settings">
-            "Settings"->React.string
-          </a>
-        </li>
-      </ul>
+      <ul className="nav nav-pills"> <li> <Settings /> </li> </ul>
     </nav>
     <div>
       <Entry data=first />
       <Entry data=second />
       <Entry data=third />
     </div>
-    <button className={Styles.actionButton ++ " btn btn-primary btn-lg h1"}>
+    <button className={Styles.actionButton ++ " btn btn-primary btn-lg"}>
       "New"->React.string
     </button>
   </div>;
