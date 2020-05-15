@@ -11,18 +11,18 @@ let style = {j|
     flex-direction: column;
     align-items: center;
   }
-  button {
-    background-color: white;
-    color: $reasonReactBlue;
-    box-shadow: 0 0 0 1px $reasonReactBlue;
-    border: none;
-    padding: 8px;
-    font-size: 16px;
-  }
-  button:active {
-    background-color: $reasonReactBlue;
-    color: white;
-  }
+  // button {
+  //   background-color: white;
+  //   color: $reasonReactBlue;
+  //   box-shadow: 0 0 0 1px $reasonReactBlue;
+  //   border: none;
+  //   padding: 8px;
+  //   font-size: 16px;
+  // }
+  // button:active {
+  //   background-color: $reasonReactBlue;
+  //   color: white;
+  // }
   .container {
     margin: 12px 0px;
     box-shadow: 0px 4px 16px rgb(200, 200, 200);
