@@ -14,7 +14,6 @@ module Styles = {
       margin(zero),
       bottom(px(20)),
       right(px(20)),
-      bottom(px(20)),
       position(fixed),
       boxShadow(Shadow.box(~y=px(8), ~blur=px(16), rgba(0, 0, 0, 0.2))),
     ]);
@@ -25,6 +24,9 @@ module Styles = {
  */
 [@react.component]
 let make = () => {
+  let (modal, setModal) = React.useState(_ => false);
+  let closeHandle = () => setModal(_ => false);
+
   <div>
     <nav className="navbar navbar-light bg-light">
       <a className="navbar-brand" href="#"> "Dream Journal"->React.string </a>
@@ -35,8 +37,15 @@ let make = () => {
       <Entry data=second />
       <Entry data=third />
     </div>
-    <button className={Styles.actionButton ++ " btn btn-primary btn-lg"}>
+    <button
+      className={Styles.actionButton ++ " btn btn-primary btn-lg"}
+      onClick={_ => setModal(prev => !prev)}>
       "New"->React.string
     </button>
+    {modal
+       ? <Dialog handleClose=closeHandle>
+           <CreateNewEntry handleClose=closeHandle />
+         </Dialog>
+       : React.null}
   </div>;
 };

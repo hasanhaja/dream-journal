@@ -5,7 +5,9 @@ var Curry = require("bs-platform/lib/js/curry.js");
 var React = require("react");
 var Css_Core = require("bs-css/src/Css_Core.js");
 var Entry$ReasonReactExamples = require("./Entry.bs.js");
+var Dialog$ReasonReactExamples = require("./Dialog.bs.js");
 var Settings$ReasonReactExamples = require("./Settings.bs.js");
+var CreateNewEntry$ReasonReactExamples = require("./CreateNewEntry.bs.js");
 
 var content = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lectus arcu bibendum at varius vel pharetra vel turpis nunc. Pretium nibh ipsum consequat nisl vel. Eget nulla facilisi etiam dignissim diam quis enim. Viverra ipsum nunc aliquet bibendum enim. Semper quis lectus nulla at volutpat diam ut venenatis tellus. Mi quis hendrerit dolor magna. Nascetur ridiculus mus mauris vitae ultricies leo. Non arcu risus quis varius quam quisque id. Tincidunt id aliquet risus feugiat in ante metus. Vulputate eu scelerisque felis imperdiet proin fermentum leo. Turpis massa sed elementum tempus egestas sed sed. Eget nulla facilisi etiam dignissim diam quis enim lobortis scelerisque. Eu volutpat odio facilisis mauris sit amet massa. Egestas tellus rutrum tellus pellentesque eu. Id interdum velit laoreet id donec ultrices. Elementum nisi quis eleifend quam adipiscing.";
 
@@ -34,13 +36,10 @@ var actionButton = Curry._1(Css.style, /* :: */[
         /* :: */[
           Css.right(Css.px(20)),
           /* :: */[
-            Css.bottom(Css.px(20)),
+            Css.position(Css.fixed),
             /* :: */[
-              Css.position(Css.fixed),
-              /* :: */[
-                Css.boxShadow(Css_Core.Shadow.box(undefined, Css.px(8), Css.px(16), undefined, undefined, Css.rgba(0, 0, 0, 0.2))),
-                /* [] */0
-              ]
+              Css.boxShadow(Css_Core.Shadow.box(undefined, Css.px(8), Css.px(16), undefined, undefined, Css.rgba(0, 0, 0, 0.2))),
+              /* [] */0
             ]
           ]
         ]
@@ -52,6 +51,15 @@ var Styles = {
 };
 
 function App(Props) {
+  var match = React.useState((function () {
+          return false;
+        }));
+  var setModal = match[1];
+  var closeHandle = function (param) {
+    return Curry._1(setModal, (function (param) {
+                  return false;
+                }));
+  };
   return React.createElement("div", undefined, React.createElement("nav", {
                   className: "navbar navbar-light bg-light"
                 }, React.createElement("a", {
@@ -66,8 +74,18 @@ function App(Props) {
                     }), React.createElement(Entry$ReasonReactExamples.make, {
                       data: third
                     })), React.createElement("button", {
-                  className: actionButton + " btn btn-primary btn-lg"
-                }, "New"));
+                  className: actionButton + " btn btn-primary btn-lg",
+                  onClick: (function (param) {
+                      return Curry._1(setModal, (function (prev) {
+                                    return !prev;
+                                  }));
+                    })
+                }, "New"), match[0] ? React.createElement(Dialog$ReasonReactExamples.make, {
+                    handleClose: closeHandle,
+                    children: React.createElement(CreateNewEntry$ReasonReactExamples.make, {
+                          handleClose: closeHandle
+                        })
+                  }) : null);
 }
 
 var make = App;

@@ -7,6 +7,7 @@ module Styles = {
     style([
       right(zero),
       display(block),
+      borderRadius(px(5)),
       padding(px(12)),
       position(absolute),
       backgroundColor(white),

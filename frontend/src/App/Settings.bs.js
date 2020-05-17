@@ -18,16 +18,19 @@ var dropDownContent = Curry._1(Css.style, /* :: */[
       /* :: */[
         Css.display(Css.block),
         /* :: */[
-          Css.padding(Css.px(12)),
+          Css.borderRadius(Css.px(5)),
           /* :: */[
-            Css.position(Css.absolute),
+            Css.padding(Css.px(12)),
             /* :: */[
-              Css.backgroundColor(Css.white),
+              Css.position(Css.absolute),
               /* :: */[
-                Css.boxShadow(Css_Core.Shadow.box(undefined, Css.px(8), Css.px(16), undefined, undefined, Css.rgba(0, 0, 0, 0.2))),
+                Css.backgroundColor(Css.white),
                 /* :: */[
-                  Css.zIndex(1),
-                  /* [] */0
+                  Css.boxShadow(Css_Core.Shadow.box(undefined, Css.px(8), Css.px(16), undefined, undefined, Css.rgba(0, 0, 0, 0.2))),
+                  /* :: */[
+                    Css.zIndex(1),
+                    /* [] */0
+                  ]
                 ]
               ]
             ]
